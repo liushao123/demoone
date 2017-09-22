@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>留言板</title>
+	<link rel="stylesheet" href="liuyanban.css">
+</head>
+<body>
+	<div class="box">
+		<ul class="content">
+			<!-- <li>
+				<img src="9 (2).png" alt="">
+				<div class="item">
+					<h3>张三</h3>
+					<p>我是你爸爸</p>
+				</div>
+			</li> -->
+		</ul>
+		<div class="texta">
+			<input type="text" placeholder="姓名">
+			<textarea name="" id="" cols="30" rows="50" maxLength='120' placeholder="请输入你的留言："></textarea>
+			<div class="tip">还能输入<span class="tips">120</span>个字</div>
+			<button class="submit">提交</button>
+		</div>
+	</div>
+</body>
+</html>
+<script src="function.js"></script>
+<script src="liuyanban.js"></script>
+<script>
+	/*
+	剩余字数 =总数  -输入
+	          200    str.length
+	1、获取内容  value   innertext
+	2、最大输入值   maxlength   minlength
+					直接在textarea中添加属性maxlength
+					js
+	3、提交  shift+enter
+		e.shiftKey  &&  e.keyCode==13
+		1、文本域保存后清空(='')
+		2、插入（创建一个元素节点ele=document.createElement()，
+		ele.innerText= ）
+	 */
+</script>

@@ -1,0 +1,114 @@
+/*
+* @Author: Administrator
+* @Date:   2017-08-21 17:38:47
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-08-22 09:32:42
+*/
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	resize: none;
+}
+html,body{
+	width: 100%;
+	height: 500px;
+}
+.box{
+	width: 1000px;
+	height: auto;
+	min-height: 300px;
+	/* background: yellow; */
+	margin: 0 auto;
+}
+.content{
+	width: 700px;
+	height: 300px;
+	/* background:yellowgreen; */
+	float: left;
+	border: 1px solid #dddddd;
+	box-sizing: border-box;
+	overflow: auto;
+}
+.content>li{
+	width: 100%;
+	height: 60px;
+	padding: 5px 5px;
+	box-sizing: border-box;
+	position: relative;
+	border-bottom: 1px solid #cccccc;
+	box-shadow: 
+}
+.content>li>img{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+}
+.item{
+	height: 100%;  
+	padding: 5px 5px;
+	position: relative;
+	margin-left: 50px;
+	box-sizing: border-box;
+}
+.item>h3{
+	font-size: 16px;
+	line-height: 24px;
+	border-bottom: 1px dashed #e2ff00;
+}
+.item>p{
+	font-size: 14px;
+	color: #999999;
+	line-height: 18px;
+}
+.texta{
+	width: 300px;
+	height: 300px;
+	background: white;
+	border: 1px solid #F7C9D8;
+	box-sizing: border-box;
+	float: right;
+	padding: 5px 5px;
+}
+.texta>input{
+	width: 100%;
+	padding: 10px 5px;
+	box-sizing: border-box;
+	font-size: 16px;
+	color: #111;
+	border-radius: 5px;
+}
+.texta>textarea{
+	width: 100%;
+	height: 150px;
+	padding: 10px 5px;
+	box-sizing: border-box;
+	margin: 10px 0;
+	background: white;
+	font-size: 16px;
+	color: #222;
+	line-height: 24px;
+	border-radius: 5px;
+}
+.tip{
+	font-size: 14px;
+	color: #666666;
+	line-height: 14px;
+	text-align: right;
+}
+.tip>span{
+	color: red;
+}
+.submit{
+	width: 100%;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 16px;
+	color: white;
+	background: #64BFF7;
+	border: 0;
+	margin-top: 10px;
+	font-weight: bold;
+}

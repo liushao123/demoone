@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>画板</title>
+        <link rel="stylesheet" href="canvas1.css">
+        <script src="canvas1.js"></script>
+        <script src="palette.js"></script>
+        <link rel="stylesheet" href="iconfont/iconfont.css">
+    </head>
+    <body>
+    	<main>
+    		<div class="left">
+    			<div class="logo icon-color"></div>
+    			<ul class="left-gongju">
+    				<li class="gongju1 icon-line"></li>
+    				<li class="gongju1 icon-xuxian"></li>
+    				<li class="gongju1 icon-qianbi"></li>
+    				<li class="gongju1 icon-juxing"></li>
+    				<li class="gongju1 icon-caozuocaiqie"></li>
+    				<li class="gongju1 icon-wujiaoxing"></li>
+    				<li class="gongju1 icon-ziti"></li>
+    				<!-- <li class="gongju1 icon-sanjiaoxing"></li> -->
+    				<li class="gongju1 icon-xiangpica"></li>
+    				<!-- <li class="gongju1 icon-yun"></li> -->
+    				<li class="gongju1 icon-liujiaoxing"></li>
+    				<li class="gongju1 icon-xiguan"></li>
+    				<!-- <li class="gongju1 icon-tianchong"></li> -->
+    				<li class="gongju1 icon-tupian"></li>
+    				<li class="gongju1 icon-tuoyuan"></li>
+    				<li class="gongju1 icon-duobianxing"></li>
+    				<li class="gongju1 icon-fangdajing"></li>
+    				<button class="btn">描边</button>
+    				<button class="line">实</button>
+    				<li class="gongju2">
+    					填充<input type="color" id="fillcolor">
+    				</li>
+    				<li class="gongju2">
+    					描边<input type="color" id="strokecolor">
+    				</li>
+    			</ul>
+    		</div>
+    		<div class="right">
+    			<div class="top">
+    				<ul class="top-anniu">
+    					<li class="anniu1 icon-xinjian"></li>
+    					<li class="anniu1 icon-dakai"></li>
+    					<a href="" class="anniu1 icon-tubiaozhizuomoban"></a>
+    					<li class="anniu1 icon-chexiao"></li>
+    					<li class="anniu1 icon-fanchexiao"></li>
+    					<li class="anniu2 icon-web-quit"></li>
+    				</ul>
+    			</div>
+    			<div class="bottom">
+    				<canvas width="800" height="500"></canvas>
+    				<div class="eraser"></div>
+                    <div class="mask"></div>
+                    <div class="clip"></div>
+    			</div>
+    		</div>
+    	</main>
+    </body>
+</html>

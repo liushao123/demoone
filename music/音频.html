@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>音频</title>
+</head>
+<body>
+	<audio src=""  controls>
+		<!-- <source src="" type="audio/mpeg"></source>
+		<source src="" type="audio/ogg"></source> -->
+
+	</audio>
+	<button>播放</button>
+</body>
+</html>
+<script>
+	let audio=document.querySelector('audio');
+	// console.log(audio.paused)   //true
+	let button=document.querySelector('button');
+	button.onclick=function(){
+		if(audio.paused){
+			audio.play();//播放
+		}else{
+			audio.pause();//暂停
+		}
+	}
+	audio.ontimeupdata=function(){
+		console.log(audio.currentTime4)//当前时间
+		console.log(audio.duration)//总时长
+	}
+
+	
+</script>

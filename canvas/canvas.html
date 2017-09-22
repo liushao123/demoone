@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="canvas.css">
+        <script src="canvas.js"></script>
+    </head>
+	<style>
+	canvas{
+		border:1px solid red ;
+	}
+	</style>
+    <body>
+	<!-- canvas默认是300*150  替换信息 -->
+	<canvas width="600" height="600">
+		你的浏览器版本过低
+	</canvas>
+    </body>
+</html>
+<script>
+	let canvas=document.querySelector('canvas');
+	let ctx=canvas.getContext("2d");//获得画图环境
+	// ctx.fillStyle='yellow';//填充颜色
+	// ctx.strokeStyle='red';//描边颜色
+	// ctx.fillRect(100, 25, 100, 100);//填充矩形(x y w h)	
+	// ctx.clearRect(120, 45, 60, 60);//清除
+	// ctx.strokeRect(140, 65, 20, 20);//描边
+
+
+/*	for (let i = 0; i < 6; i++) {
+		for (let j = 0; j < 6; j++) {
+			ctx.fillStyle=`rgb(0,${255-42.5*i},${255-42.5*i})`;
+			ctx.fillRect(50*j, 50*i, 50, 50);
+			
+		}
+	}*/
+//*
+	/*ctx.beginPath();//开始
+	ctx.moveTo(20, 20);
+	ctx.lineTo(20, 120);
+	ctx.lineTo(120, 120);
+	ctx.closePath();//闭合
+	ctx.fill();//填充
+*/
+/*	ctx.beginPath();//开始
+	ctx.moveTo(40, 20);
+	ctx.lineTo(140, 20);
+	ctx.lineTo(140, 120);
+	ctx.closePath();//闭合
+	ctx.stroke();//描边*/
+
+	//绘圆
+	/*ctx.beginPath();
+	ctx.arc(150,150,50,0,Math.PI*2,true);
+	ctx.fill();*/
+
+	//半圆
+	/*ctx.beginPath();
+	ctx.arc(150,150,50,1.5*Math.PI,Math.PI*0.5,false);
+	ctx.fill();*/
+
+	//笑脸
+	/*ctx.beginPath();
+	ctx.arc(150,150,100,0,Math.PI*2,true);
+	ctx.moveTo(210,170);
+	ctx.arc(150,170,60,0,Math.PI);
+	ctx.moveTo(130,110);
+	ctx.arc(110,110,20,0,Math.PI*2);
+	ctx.moveTo(210,110);
+	ctx.arc(190,110,20,0,Math.PI*2);
+	ctx.stroke();//描边*/
+
+	//通过路径
+	// ctx.beginPath();
+	// ctx.rect(50, 50, 100, 50);
+	// ctx.fill();
+
+	//正多边形
+	// floy(8,100);
+	// function floy(bian,r){
+	// 	let ang=360/bian/180*Math.PI;
+	// 	ctx.beginPath();
+	// 	ctx.moveTo(150+r,150);
+	// 	for (let  i = 1; i < bian; i++) {
+	// 		ctx.lineTo(150+r*Math.cos(ang*i), 150+r*Math.sin(ang*i));
+
+	// 	}
+	// 	ctx.closePath();
+	// 	ctx.fill();
+	// }
+	
+/*	let t=setInterval(fn,20);
+	let n=1;
+	function fn(){
+		n++;
+		if (n==80) {
+			clearInterval(t);
+		}
+		ctx.clearRect(0,0,300,300);
+		let end=n*(2*Math.PI/100);
+		ctx.lineWidth=20;
+		ctx.lineCap='round';//设置端点
+		ctx.beginPath();
+		ctx.arc(150,150,100,-0.5*Math.PI,end-0.5*Math.PI,false);
+		ctx.stroke();
+
+	}*/
+/*		canvas.onmousedown=function(e){
+		let ox=e.offsetX;
+		let oy=e.offsetY;
+		canvas.onmousemove=function(e){
+			let cx=e.offsetX;
+			let cy=e.offsetY;
+			let r=Math.sqrt(Math.pow(cx-ox,2)+Math.pow(cy-oy,2));
+			floy(ox,oy,5,r);
+		}
+		canvas.onmouseup=function(){
+			canvas.onmousemove=null;
+			canvas.onmouseup=null;
+		}
+	}
+	function floy(x,y,num,r){
+		let ang=360/num*2/180*Math.PI;
+		ctx.beginPath();
+		ctx.moveTo(x+r,y);
+		for (let  i = 1; i < num; i++) {
+			ctx.lineTo(x+r*Math.cos(ang*i), y+r*Math.sin(ang*i));
+
+		}
+		ctx.closePath();
+		ctx.fill();
+		ctx.stroke();
+	}*/
+//画板直线
+let data=[];
+	canvas.onmousedown=function(e){
+		let ox=e.offsetX;
+		let oy=e.offsetY;
+		
+		canvas.onmousemove=function(e){
+			let cx=e.offsetX;
+			let cy=e.offsetY;
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			if (data.length>0) {
+				ctx.putImageData(data[data.length-1],0,0);
+			}
+			ctx.lineWidth=10;
+			ctx.lineJoin='round';
+			ctx.beginPath();
+			ctx.moveTo(ox,oy);
+			// ctx.setLineDash([10,10]);
+			ctx.lineTo(cx, cy);
+			ctx.closePath();
+			ctx.stroke();
+		}
+		canvas.onmouseup=function(){
+			// data=ctx.getImageData(0,0,canvas.width,canvas.height);
+			data.push(ctx.getImageData(0,0,canvas.width,canvas.height));
+			canvas.onmousemove=null;
+			canvas.onmouseup=null;
+		}
+		document.onkeydown=function(e){
+			if (e.ctrlKey&&e.keyCode==90) {
+				let img=data.pop();
+				console.log(img);
+				ctx.putImageData(img,0,0);
+			}
+		}
+	}
+//画板铅笔
+/*	canvas.onmousedown=function(e){
+		let ox=e.offsetX;
+		let oy=e.offsetY;
+		ctx.beginPath();
+		ctx.moveTo(ox,oy);
+		ctx.lineWidth=10;
+		ctx.lineCap='square';//设置端点
+		canvas.onmousemove=function(e){
+			let cx=e.offsetX;
+			let cy=e.offsetY;	
+			ctx.lineTo(cx, cy);
+			ctx.stroke();
+		}
+		canvas.onmouseup=function(){
+			canvas.onmousemove=null;
+			canvas.onmouseup=null;
+		}
+	}*/
+/*
+角的样式
+lineJoin='miter''round''bevel'
+font(bold 30px sans-serif);
+textBaseline='middle';
+textalign='center'
+fillText('hello',300,300);
+fillText(`${n}%`,300,300);
+strokeText('hello',300,300);
+request	AnimationFrame();
+
+img.onload=function(){
+	ctx.drawgImage(img,x20,y20,宽100，高100,x1 130,y1 130,宽1 50,高1 50);
+}//引入图片
+
+let img=new Image();
+img.src='xxx.png';
+img.onload=function(){
+	ctx.drawImage(img,20,20);
+	let data=ctx.getImageData(0,0,canvas.width,canvas.height);
+	ctx.putImageData(data,300,300);
+}
+
+
+console.log(data);
+console.log(data.data);
+ */
+	</script>

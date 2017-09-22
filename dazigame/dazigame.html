@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>打字游戏</title>
+        <link rel="stylesheet" href="dazigame.css">
+    </head>
+    <body>
+    	<main>
+            <img src="img/timg.jpg" alt="">
+    		<div class="box">得分：<span>0</span></div>
+    		<div class="box1">生命：<span>10</span></div>
+            <div class="pass">关卡&nbsp&nbsp<span>1</span></div>
+            <button class="continue">继续</button>
+    		<button class="gamestart">开始游戏</button>
+            <button class="stops">暂停</button>
+            <button class="restart">重新开始</button>
+            <audio src="群星 - 欢乐斗地主背景音乐.mp3" controls></audio>
+    	</main>
+    </body>
+</html>
+<script src="dazigame.js"></script>
+<script>
+window.onload=function(){
+    let button=document.querySelector('.gamestart');
+    let stop=document.querySelector('.stops');
+    let continues=document.querySelector('.continue');
+    let newstart=document.querySelector('.restart');
+    let game=new Game();
+    console.log(stop);
+    button.onclick=function(){
+        game.start();
+    }
+    stop.onclick=function(){
+       game.stops();
+
+    }
+    continues.onclick=function(){
+        game.continues();
+    }
+    newrestart.onclick=function(){
+        game.restart();
+    }
+}
+	
+    </script>
